@@ -11,14 +11,14 @@ class Control():
 
     def off2pwm(self,offset):
         '''
-        TODO control optimization
+        TODO PID control optimization
         '''
-        roll = 1500 + (500 * offset)
-        return roll
+        pwm = 1500 + (500 * offset)
+        return pwm
 
     def distance2pwm(self,distance):
         '''
-        TODO control optimization
+        TODO PID control optimization
         '''
         if distance > 10:
             return 1600
@@ -51,7 +51,7 @@ class Control():
 
         #Print txt to image
         text_log = "Offset : {:.2f}cm".format(offset)
-        cv2.putText(image,text_log,(0,10),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,255,0), 2)
+        cv2.putText(image,text_log,(0,60),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,255,0), 2)
 
         # TODO Set offset tolerance param (assumption is 0.3)
         if offset < 0.3: 
@@ -61,7 +61,7 @@ class Control():
 
     def approaching(self,distance):
         '''
-        Control the attitude pitch of vehicle by calculating distance from QR
+        Control the attitude pitch of vehicle by calculating distance(cm) from QR
         return True if QR close, False otherwise
         '''
         self.pwm_pitch = self.distance2pwm(distance)
@@ -69,13 +69,6 @@ class Control():
             return True
         else:
             return False
-
-
-    def scan(self):
-        pass
-
-    def drop(self):
-        pass
 
 if __name__== "__main__" :
 	print("Control Class")
