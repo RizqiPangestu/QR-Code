@@ -26,9 +26,10 @@ class Drop():
         '''
         Dropping Mechanism
         1. Wait 3 second for confirmation (should be thread)
+        TODO make thread for timer
         '''
         # self.wait(3)
-
+        
         '''
         2. Get color code
         '''
