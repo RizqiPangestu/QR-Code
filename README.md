@@ -4,6 +4,6 @@
 - PID Control
 
 # How to run code
-'''
+```bash
 python3 test.py
-'''
+
