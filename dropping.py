@@ -38,11 +38,11 @@ class Drop():
         for code in data:
             print(code)
             print(type(code))
-            if data == 'RED':
+            if data == 'VTOL 1': # RED
                 pass
-            elif data == 'GREEN':
+            elif data == 'VTOL 2': # GREEN
                 pass
-            elif data == 'BLUE':
+            elif data == 'VTOL 3': # BLUE
                 pass
 
     def reset(self):
