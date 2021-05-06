@@ -2,7 +2,7 @@ import cv2
 from QR import QR
 from control import Control
 
-video_path = "sample3.mp4"
+video_path = "data/video_QR/sample3.mp4"
 cap = cv2.VideoCapture(video_path)
 fps = 20 # An assumption
 img_width = 640 # An assumption
@@ -19,7 +19,6 @@ while (cap.isOpened()):
         image = QR.processQR(frame)
         cv2.imshow("capture",image)
         # videoWriter.write(image)
-        ret, frame = cap.read()
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
                 break
