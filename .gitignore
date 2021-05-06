@@ -1,3 +1,4 @@
 *.pyc
 data/
 focal_length.py
+*.avi
