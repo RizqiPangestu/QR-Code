@@ -10,7 +10,7 @@ img_height = 480
 img_size = ((img_height,img_width))
 QR = QR()
 
-videoWriter = cv2.VideoWriter('output.avi', cv2.VideoWriter_fourcc('M','J','P','G'),fps, img_size)
+# videoWriter = cv2.VideoWriter('output.avi', cv2.VideoWriter_fourcc('M','J','P','G'),fps, img_size)
 
 while (cap.isOpened()):
     ret, frame = cap.read()

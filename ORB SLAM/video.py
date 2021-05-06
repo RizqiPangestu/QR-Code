@@ -13,7 +13,7 @@ orb = cv2.ORB_create(nfeatures=1000,scaleFactor=1.2)
 # create BFMatcher object
 bf = cv2.BFMatcher_create(cv2.NORM_HAMMING, crossCheck=True)
 
-videoWriter = cv2.VideoWriter('output.avi', cv2.VideoWriter_fourcc('M','J','P','G'),fps, img_size)
+# videoWriter = cv2.VideoWriter('output.avi', cv2.VideoWriter_fourcc('M','J','P','G'),fps, img_size)
 
 firstFrame = True
 while (cap.isOpened()):
