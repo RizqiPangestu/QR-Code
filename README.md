@@ -1,8 +1,6 @@
 # Project QR Code for UAV Drone
 ## TODO:
-- Dropping Mechanism
 - PID Control
-- Tracking and Maping Monocular Camera : [ORB SLAM2](http://ieeexplore.ieee.org/document/7219438/?part=1)
 
 ## How to run code
 ```bash
@@ -13,3 +11,5 @@ or
 python3 dropping.py
 ```
 
+## References
+- Tracking and Maping Monocular Camera : [ORB SLAM2](http://ieeexplore.ieee.org/document/7219438/?part=1)

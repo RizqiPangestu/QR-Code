@@ -10,10 +10,9 @@ RED   = (0,0,255)
 F = 546.4285714285714
 
 
-class QR():
+class QR(Control):
 	def __init__(self):
 		self.data = list()
-		self.control = Control(1500,1500,1500)
 		self.distance = 0
 		self.status = RED
 
@@ -25,7 +24,7 @@ class QR():
 		Centering and approaching control to QR code
 		return green color if offset < 0.1, otherwise red
 		'''
-		if self.control.centering(image,coordinates,size) and self.control.approaching(distance):
+		if self.centering_QR(image,coordinates,size) and self.approaching_QR(distance):
 			return GREEN
 		else:
 			return RED
@@ -34,10 +33,10 @@ class QR():
 		barcodes = pyzbar.decode(image)
 		for barcode in barcodes:
 			(x,y,w,h) = barcode.rect
-			coordinates = (x,y)
-			size = (w,h)
+			coordinates_QR = (x,y)
+			size_QR = (w,h)
 			self.distance = self.calc_distance(F,w)
-			self.status = self.center_status(image,coordinates,size,self.distance)
+			self.status = self.center_status(image,coordinates_QR,size_QR,self.distance)
 			self.data.append(barcode.data.decode("utf-8"))
 			cv2.rectangle(image, (x, y), (x + w, y + h), self.status, 2)
 
@@ -46,7 +45,7 @@ class QR():
 		cv2.putText(image,text_log,(0,10),cv2.FONT_HERSHEY_SIMPLEX, 0.5, GREEN, 2)
 		text_log = "Distance : {:.2f}cm".format(self.distance)
 		cv2.putText(image,text_log,(0,35),cv2.FONT_HERSHEY_SIMPLEX, 0.5, GREEN, 2)
-		return image
+		return image,self.status
 
 	def get_data(self):
 		'''
