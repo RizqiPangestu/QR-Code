@@ -1,6 +1,7 @@
 # Project QR Code for UAV Drone
 ## TODO:
 - PID Control
+- Camera Calibration to find intrinsic camera
 
 ## How to run code
 ```bash
