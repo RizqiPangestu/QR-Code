@@ -118,6 +118,28 @@ class ORB():
         self.homography()
         return self.rotation,self.translation
 
+if __name__=="__main__":
+    img = cv2.imread("../data/ORB/orb1.jpg")
+    img2 = cv2.imread("../data/ORB/orb2.jpg")
+    img_width = 640 # An assumption
+    img_height = 480
+    img_size = ((img_height,img_width))
+    img = cv2.resize(img,img_size,interpolation=cv2.INTER_AREA)
+    img2 = cv2.resize(img2,img_size,interpolation=cv2.INTER_AREA)
+
+
+    obj = ORB()
+
+    kp1,des1 = obj.extractORB(img)
+    kp2,des2 = obj.extractORB(img2)
+
+    rotation,translation = obj.get_pose(img,img2,(kp1,des1),(kp2,des2),draw=True)
+
+    print(f"[INFO] ROTATION =\n{rotation}\nTRANSLATION =\n{translation}")  
+
+    cv2.waitKey()
+    cv2.destroyAllWindows()
+
 
 
        
